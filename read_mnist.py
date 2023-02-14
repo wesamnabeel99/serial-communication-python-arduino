@@ -13,4 +13,6 @@ def read_mnist_image(file_path, row_index):
     plt.savefig("temp/sample.png")
 
     sample_mnist_label = sample_mnist_row[0,0]
-    print(sample_mnist_label)
+    print("the label of mnist image is %d"%sample_mnist_label)
+
+    return sample_mnist_image
