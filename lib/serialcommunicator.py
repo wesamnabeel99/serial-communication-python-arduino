@@ -6,12 +6,14 @@ class SerialCommunicator:
         self.__serial_port = serial_port
         self.__baudrate = baudrate
         self.__serial = serial.Serial(port=serial_port, baudrate=baudrate)
+        self.__serial.close()
+        self.__serial.open()
 
     def write_to_serial(self, data):
-        self.__serial.write(str(data).encode())
+        self.__serial.write(str(data).encode(encoding="ascii"))
 
     def read_from_serial(self):
-        return self.__serial.readline().decode()
+        return self.__serial.readline().decode(encoding="ascii")
 
     @staticmethod
     def print_com_ports():
