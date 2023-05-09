@@ -6,8 +6,6 @@ class SerialCommunicator:
         self.__serial_port = serial_port
         self.__baudrate = baudrate
         self.__serial = serial.Serial(port=serial_port, baudrate=baudrate)
-        self.__serial.close()
-        self.__serial.open()
 
     def write_to_serial(self, data):
         self.__serial.write(str(data).encode(encoding="ascii"))
@@ -23,3 +21,6 @@ class SerialCommunicator:
 
     def close(self):
         self.__serial.close()
+
+    def open(self):
+        self.__serial.open()
